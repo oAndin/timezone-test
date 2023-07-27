@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time and Place Project</title>
+    <link rel="stylesheet" href="./public/css/style.css">
+</head>
+<body>
+    <section>
+        <div id="container">
+            <div class="content">
+                <h6><box-icon name="sun"></box-icon>Acorda menino...</h6>
+                <h1><span id="hora">00</span>:<span id="minuto">00</span></h1>
+                <p id="">in <span id="pais">Brasil</span></p>
+            </div>
+            <button id="select" onclick="changeIcon()">Select timezone <box-icon id="boxIcon" name='chevron-down'></box-icon></button>
+        </div>
+        <select id="listaDeTimezones">
+            <option value="">Timezone</option>
+        </select>
+    </section>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="./public/js/script.js"></script>
+</body>
+</html>

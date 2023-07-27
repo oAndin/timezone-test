@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&family=Noto+Sans+JP:wght@100;500;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+#container {
+    position: fixed;
+    bottom: 70px;
+    left: 100px;
+}
+
+#container .content h6 {
+    font-weight: lighter;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+    /* margin-bottom: 1.5rem; */
+}
+
+#container .content h1 {
+    font-size: 8rem;
+}
+
+#container .content p {
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+#container button#select {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 70px;
+    right: 200px;
+    height: 3rem;
+    padding: 0 1rem;
+}
+
+#container button#select box-icon {
+    
+}
+
+#listaDeTimezones {
+    position: fixed;
+    top: 70px;
+    right: 100px;
+    height: 3rem;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
