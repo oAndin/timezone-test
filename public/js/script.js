@@ -8,7 +8,7 @@ function changeIcon() {
 
 function listarTimezones () {
     try {
-        fetch('https://timeapi.io/api/TimeZone/AvailableTimeZones')
+        fetch('http://localhost:3000/timezones')
         .then((response) => response.json())
         .then(timeszones => {
             timeszones.forEach(timeszone => {
