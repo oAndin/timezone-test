@@ -12,7 +12,7 @@ function listarTimezones () {
         .then((response) => response.json())
         .then(timeszones => {
             timeszones.forEach(timeszone => {
-                listarTimezones.innerHTML += `
+                listaDeTimezones.innerHTML += `
                     <option>${timeszone}</option>
                 `                
             });
