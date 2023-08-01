@@ -594,60 +594,64 @@ const timezones = [
     "W-SU",
     "WET",
     "Zulu"
-  ];
+];
 
-  timezones.forEach(timezone => {
+timezones.forEach(timezone => {
     listaDeTimezones.innerHTML += `
         <option>${timezone}</option>
     `;
 });
 
 
-function listarTimezones(){
+function listarTimezones() {
     try {
-    fetch(`https://api.ipgeolocation.io/timezone?apiKey=d4832a3a1d4c47dfaf6ad1eda8daba03&tz=${listaDeTimezones.value}`)
-        .then(response => response.json())
-        .then(timezone => {
-            hora.innerHTML = timezone.time_24;
-            pais.innerHTML = timezone.timezone.split('/')[1];
-            let horaAgora = timezone.time_24.split(':')[0];
-            contarTempo();
-            if(horaAgora > 5 && horaAgora < 13){
-                document.querySelector('body').style.backgroundImage = 'url("images/amanhecer.jpg")';
-                container.classList.remove('light');
-                icone.setAttribute('name', 'sun');
-                frase.innerHTML = "Acorda minino";
-                return;
-            }
-            if(horaAgora > 12 && horaAgora < 18){
-                document.querySelector('body').style.backgroundImage = 'url("images/entardecer.jpg")';
-                container.classList.add('light');
-                icone.setAttribute('name', 'sun');
-                frase.innerHTML = "Bora tomar um café";
-                return;
-            }
-            document.querySelector('body').style.backgroundImage = 'url("images/anoitecer.jpg")';
-            container.classList.add('light');
-            icone.setAttribute('name', 'moon');
-            frase.innerHTML = "Dorme minino";
+        fetch(`https://api.ipgeolocation.io/timezone?apiKey=7deaec843ffa4fe88ebf25b09076870b&tz=${listaDeTimezones.value}`, {
+            method: "get",
+            headers: {
+                "Content-type": "application/json"
+            },
         })
-    } catch(error){
+            .then(response => response.json())
+            .then(timezone => {
+                let horaAgora = timezone.time_24.split(':')[0];
+                hora.innerHTML = timezone.time_24;
+                pais.innerHTML = timezone.timezone.split('/',[1]);
+                if (horaAgora > 5 && horaAgora < 13) {
+                    document.querySelector('body').style.backgroundImage = 'url(public/img/morning.jpg)';
+                    container.classList.remove('light');
+                    icone.setAttribute('name', 'sun')
+                    frases.innerHTML = 'Acorda menino...';
+                    return;
+                }
+                else if (horaAgora > 12 && horaAgora < 19) {
+                    document.querySelector('body').style.backgroundImage = 'url(public/img/midday.jpg)';
+                    container.classList.add('light');
+                    icone.setAttribute('name', 'sun')
+                    frases.innerHTML = 'Vai para praia menino...';
+                    return;
+                }
+                document.querySelector('body').style.backgroundImage = 'url(public/img/night.jpg)';
+                container.classList.add('light');
+                icone.setAttribute('name', 'moon')
+                frases.innerHTML = 'Vai para cama menino...';
+            })
+    } catch (error) {
         alert("Deu ruim");
     }
-} listarTimezones();
-
+}; listarTimezones();
 
 function contarTempo(){
-    let tempo = hora.textContent.split(':');
+    let tempo = hora.textContent.split(':')
     let t_hora = Number(tempo[0]);
     let t_minuto = Number(tempo[1]);
-    let t_segundo = Number(tempo[2])
+    let t_segundo = Number(tempo[2]);
 
     setInterval(() => {
-        if(t_segundo == 59){
+        if(t_segundos ==  59) {
             t_segundo = '0';
             t_minuto++;
-        }else{
+        }
+        else {
             t_segundo++;
         }
         hora.innerHTML = `${t_hora}:${t_minuto < 10 ? '0'+t_minuto : t_minuto}:${t_segundo < 10 ? '0'+t_segundo : t_segundo}`;
