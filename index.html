@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="./public/css/style.css">
 </head>
 <body>
-    <section>
+<section>
         <div id="container">
             <div class="content">
-                <h6><box-icon name="sun"></box-icon>Acorda menino...</h6>
-                <h1><span id="hora">00</span>:<span id="minuto">00</span></h1>
+                <h6><box-icon id="icone" name="sun"></box-icon><span id="frases">Acorda menino...</span></h6>
+                <h1><span id="hora">00:00</h1>
                 <p id="">in <span id="pais">Brasil</span></p>
             </div>
             <button id="select" onclick="changeIcon()">Select timezone <box-icon id="boxIcon" name='chevron-down'></box-icon></button>
         </div>
-        <select id="listaDeTimezones">
+        <select id="listaDeTimezones" onChange="listarTimezones()">
             <option value="">Timezone</option>
         </select>
     </section>

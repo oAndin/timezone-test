@@ -9,11 +9,23 @@
     font-family: 'Inter', sans-serif;
     font-family: 'Noto Sans JP', sans-serif;
 }
-
+body {
+    background-image: url();
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 #container {
     position: fixed;
     bottom: 70px;
     left: 100px;
+}
+
+#container.light{
+    color: #fff;
+}
+
+#container.light box-icon {
+    fill: #fff;
 }
 
 #container .content h6 {
